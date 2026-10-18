@@ -24,5 +24,39 @@ namespace DNS_Forge_Client.Pages
         {
             InitializeComponent();
         }
+
+
+        private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                Window.GetWindow(this).DragMove();
+            }
+        }
+
+
+        private void Label_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                Window.GetWindow(this).DragMove();
+            }
+        }
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).Close();
+        }
+
+        private void Button1_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).WindowState = WindowState.Minimized;
+        }
+
+        private void Button2_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).Content = new MainPage();  
+        }
     }
 }
