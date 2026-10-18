@@ -51,16 +51,19 @@ namespace DNS_Forge_Client.Pages
             Window.GetWindow(this).WindowState = WindowState.Minimized;
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void AdapterSetting(object sender, RoutedEventArgs e)
         {
             Window.GetWindow(this).Content = new AdapterSetting();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void ChooseDNS(object sender, RoutedEventArgs e)
         {
-
+            Window.GetWindow(this).Content = new ChooseDNS();
         }
 
-
+        private void BenchMarkButton(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).Content = new Benchmark();
+        }
     }
 }

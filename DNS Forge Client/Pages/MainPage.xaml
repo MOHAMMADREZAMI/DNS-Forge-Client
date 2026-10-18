@@ -26,11 +26,11 @@ MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" Margin="0,0,0,410">
 
       <Button Content="Adapter Setting"
   HorizontalAlignment="Left"
-  Margin="400,182,0,0"
+  Margin="400,145,0,0"
   VerticalAlignment="Top"
   Width="295"
   Height="43"
-  Click="Button_Click_1"
+  Click="AdapterSetting"
   Background="#FF252B35"
   BorderBrush="{x:Null}"
   Foreground="White"
@@ -53,11 +53,11 @@ MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" Margin="0,0,0,410">
       </Button>
       <Button Content="Choose DNS"
           HorizontalAlignment="Left"
-          Margin="400,237,0,0"
+          Margin="400,209,0,0"
           VerticalAlignment="Top"
           Width="295"
           Height="43"
-          Click="Button_Click_2"
+          Click="ChooseDNS"
           Background="#FF252B35"
           BorderBrush="{x:Null}"
           Foreground="White"
@@ -104,9 +104,36 @@ MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" Margin="0,0,0,410">
           </Button.Template>
 
       </Button>
+            <Button Content="Benchmark"
+          HorizontalAlignment="Left"
+          Margin="400,274,0,0"
+          VerticalAlignment="Top"
+          Width="295"
+          Height="43"
+          Click="BenchMarkButton"
+          Background="#FF252B35"
+          BorderBrush="{x:Null}"
+          Foreground="White"
+          FontWeight="Bold"
+          FontSize="16"
+          Cursor="Hand"
+          BorderThickness="0">
+
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}"
+                      CornerRadius="10">
+                            <ContentPresenter
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
 
 
-  </Grid>
+        </Grid>
 
   <!-- Close Button -->
   <Button Content="X"
