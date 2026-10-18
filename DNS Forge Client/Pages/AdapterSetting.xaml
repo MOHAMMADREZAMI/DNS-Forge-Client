@@ -77,7 +77,6 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="368,173,0,0" VerticalAlignment="Top"/>
         <Button Content="X"
             Margin="749,0,0,410"
             Click="Button_Click"
