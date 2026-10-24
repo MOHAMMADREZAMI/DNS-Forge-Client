@@ -12,6 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
+using System.Diagnostics;
+using System.IO;
+using MessagePack;
+using DNS_Forge_Client.Entities;
 
 namespace DNS_Forge_Client.Pages
 {
@@ -20,9 +25,17 @@ namespace DNS_Forge_Client.Pages
     /// </summary>
     public partial class MainPage : UserControl
     {
+        
+        //variabale
+        public static string SelAdapter;
+        public static string DNSAddress;
+        
         public MainPage()
         {
             InitializeComponent();
+            DispatcherTimer timer = new DispatcherTimer();
+
+            StopButton.Visibility = Visibility.Hidden;
         }
 
         private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -63,7 +76,46 @@ namespace DNS_Forge_Client.Pages
 
         private void BenchMarkButton(object sender, RoutedEventArgs e)
         {
+            if (SelAdapter is null)
+            {
+                new Warning("       Please Select Your Adapter first").ShowDialog();
+                return;
+            }
+
             Window.GetWindow(this).Content = new Benchmark();
+        }
+
+
+        private void SET(object sender, RoutedEventArgs e)
+        {
+            if(SelAdapter is null || DNSAddress is  null)
+            {
+                new Warning().ShowDialog();
+                return;
+            }    
+
+            SetButton.Visibility = Visibility.Hidden;
+            StopButton.Visibility = Visibility.Visible;
+
+            AdapterSettingButton.IsEnabled = false;
+            ChooseButton.IsEnabled = false;
+            BenchmarkButton.IsEnabled = false;
+
+            Process.Start(new ProcessStartInfo("powershell.exe", $"-Command \"Set-DnsClientServerAddress -InterfaceAlias '{SelAdapter}' -ServerAddresses {DNSAddress}\"") { UseShellExecute = true, WindowStyle = ProcessWindowStyle.Hidden }).WaitForExit();
+            
+            
+        }
+
+        private void STOP(object sender, RoutedEventArgs e)
+        {
+            SetButton.Visibility = Visibility.Visible;
+            StopButton.Visibility = Visibility.Hidden;
+
+            AdapterSettingButton.IsEnabled = true;
+            ChooseButton.IsEnabled = true;
+            BenchmarkButton.IsEnabled = true;
+
+            Process.Start(new ProcessStartInfo("powershell.exe", $"-Command \"Set-DnsClientServerAddress -InterfaceAlias '{SelAdapter}' -ResetServerAddresses\"") { UseShellExecute = true, WindowStyle = ProcessWindowStyle.Hidden }).WaitForExit();
         }
     }
 }

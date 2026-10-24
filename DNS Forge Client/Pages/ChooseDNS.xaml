@@ -13,10 +13,6 @@
         </LinearGradientBrush>
     </UserControl.Background>
     <Grid>
-        <Grid Height="40"
-            Background="#181818"
-            MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" Margin="0,0,0,410"/>
-        <Label Content="DNS Forge" HorizontalAlignment="Center" VerticalAlignment="Top" Height="40" Width="150" FontSize="24" Foreground="White" FontFamily="Arial Black" MouseDown="Label_MouseDown"/>
         <Button Content="X"
             Margin="749,0,0,410"
             Click="Button_Click"
@@ -48,6 +44,11 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,40,599,46" BorderBrush="White" x:Name="listBoxIR" Background="{x:Null}" FontFamily="Arial Black" FontWeight="Bold" Foreground="White" FontSize="16" MouseDoubleClick="listBoxIR_MouseDoubleClick" />
+        <Grid Height="40"
+            Background="#181818"
+            MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" Margin="0,0,0,410"/>
+        <Label Content="DNS Forge" HorizontalAlignment="Center" VerticalAlignment="Top" Height="40" Width="150" FontSize="24" Foreground="White" FontFamily="Arial Black" MouseDown="Label_MouseDown"/>
         <Button Content="—"
             Margin="698,0,51,410"
             Click="Button1_Click"
@@ -137,7 +138,134 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Label Content="Alpha 1.0" HorizontalAlignment="Center" Margin="0,412,0,0" VerticalAlignment="Top" Width="66" Height="28" Foreground="#FF565252" FontWeight="Bold"/>
+        <Border
+    Margin="201,40,0,0"
+    Width="599"
+    Height="193"
+    BorderBrush="White"
+    BorderThickness="1"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Top"
+    Background="{x:Null}">
+
+            <Image
+        x:Name="DNSimage"
+        Stretch="Uniform"
+        StretchDirection="DownOnly"
+        Opacity="1" Margin="1,0,4,0"/>
+
+        </Border>
+        <Label
+    x:Name="Description"
+    Content="Description : "
+    Margin="201,233,0,46"
+    FontFamily="Arial Black"
+    Foreground="White"
+    FontSize="10"
+    FontStyle="Italic"
+    HorizontalContentAlignment="Left"
+    VerticalContentAlignment="Top"
+    Padding="5"
+    Background="{x:Null}"
+    BorderBrush="White"
+    BorderThickness="1" FontWeight="Bold">
+
+            <Label.ContentTemplate>
+                <DataTemplate>
+                    <TextBlock
+                Text="{Binding}"
+                TextWrapping="Wrap"
+                Foreground="White"
+                FontFamily="Arial Black"
+                FontWeight="Bold"
+                FontSize="14"
+                FontStyle="Italic"/>
+                </DataTemplate>
+            </Label.ContentTemplate>
+
+        </Label>
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,40,599,0" BorderBrush="White" x:Name="listBoxGlobal" Background="{x:Null}" FontFamily="Arial Black" FontWeight="Bold" Foreground="White" FontSize="16" Height="364" VerticalAlignment="Top" MouseDoubleClick="listBoxGlobal_MouseDoubleClick" SelectionChanged="listBoxGlobal_SelectionChanged"/>
+        <Button x:Name="GlobalButton" Content="Switch Global"
+            HorizontalAlignment="Left"
+            Margin="0,404,0,0"
+            VerticalAlignment="Top"
+            Width="201"
+            Height="46"
+            Click="Switch_Global"
+            Background="#FF252B35"
+            BorderBrush="{x:Null}"
+            Foreground="White"
+            FontWeight="Bold"
+            FontSize="16"
+            Cursor="Hand"
+            BorderThickness="0">
+
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}"
+                        CornerRadius="10">
+                        <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
+        <Button x:Name="IRButton" Content="Switch IR"
+            HorizontalAlignment="Left"
+            Margin="0,404,0,0"
+            VerticalAlignment="Top"
+            Width="201"
+            Height="46"
+            Click="Switch_IR"
+            Background="#FF252B35"
+            BorderBrush="{x:Null}"
+            Foreground="White"
+            FontWeight="Bold"
+            FontSize="16"
+            Cursor="Hand"
+            BorderThickness="0">
+
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}"
+                        CornerRadius="10">
+                        <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
+        <Button x:Name="SetConfiguration" Content="Set Configuration"
+            HorizontalAlignment="Left"
+            Margin="280,404,0,0"
+            VerticalAlignment="Top"
+            Width="444"
+            Height="46"
+            Click="SetConfig"
+            Background="#FF252B35"
+            BorderBrush="{x:Null}"
+            Foreground="White"
+            FontWeight="Bold"
+            FontSize="16"
+            Cursor="Hand"
+            BorderThickness="0">
+
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}"
+                        CornerRadius="10">
+                        <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
 
     </Grid>
 </UserControl>

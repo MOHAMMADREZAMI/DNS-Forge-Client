@@ -1,0 +1,51 @@
+﻿<Window x:Class="DNS_Forge_Client.Warning"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DNS_Forge_Client"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="138" Width="328" ResizeMode="NoResize" WindowStyle="None" Icon="/Icon.ico" >
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF111318" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Button Content="Ok"
+            HorizontalAlignment="Center"
+            Margin="0,99,0,0"
+            VerticalAlignment="Top"
+            Width="104"
+            Height="28"
+            Click="Ok"
+            Background="#FF252B35"
+            BorderBrush="{x:Null}"
+            Foreground="White"
+            FontWeight="Bold"
+            FontSize="16"
+            Cursor="Hand"
+            BorderThickness="0">
+
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}"
+                        CornerRadius="10">
+                        <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
+        <Grid
+            Background="#181818"
+            MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" Margin="0,0,0,113"/>
+        <Label Content="Warning" MouseLeftButtonDown="Label_MouseLeftButtonDown" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Foreground="White" Width="164" Margin="7,-6,0,0"/>
+        <Label x:Name="ContentWarning"  Content=" Please Select Your DNS and Adapter first" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Width="246" Margin="0,42,0,0" Height="47" FontWeight="Bold"/>
+
+    </Grid>
+</Window>

@@ -137,6 +137,20 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
+        <ListBox x:Name="listBox"
+         d:ItemsSource="{d:SampleData ItemCount=5}"
+         Margin="0,45,0,0"
+         BorderBrush="{x:Null}"
+         SelectionChanged="ListBox_SelectionChanged"
+         Foreground="White"
+         FontWeight="Bold" FontSize="16" MouseDoubleClick="listBox_MouseDoubleClick">
+            <ListBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF111318" Offset="1"/>
+                </LinearGradientBrush>
+            </ListBox.Background>
+        </ListBox>
         <Label Content="Alpha 1.0" HorizontalAlignment="Center" Margin="0,412,0,0" VerticalAlignment="Top" Width="66" Height="28" Foreground="#FF565252" FontWeight="Bold"/>
 
     </Grid>

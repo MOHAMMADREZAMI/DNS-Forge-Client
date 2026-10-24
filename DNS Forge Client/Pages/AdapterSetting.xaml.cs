@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.Net.NetworkInformation;
 namespace DNS_Forge_Client.Pages
 {
     /// <summary>
@@ -23,6 +23,15 @@ namespace DNS_Forge_Client.Pages
         public AdapterSetting()
         {
             InitializeComponent();
+            CheckAdapters();
+        }
+
+        private void CheckAdapters()
+        {
+            foreach (NetworkInterface adapter in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                listBox.Items.Add(adapter.Name);
+            }
         }
 
 
@@ -57,6 +66,19 @@ namespace DNS_Forge_Client.Pages
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
             Window.GetWindow(this).Content = new MainPage();  
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void listBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            MainPage.SelAdapter = listBox.SelectedItem.ToString();
+            new Set().ShowDialog();
+            Window.GetWindow(this).Content = new MainPage();  
+
         }
     }
 }

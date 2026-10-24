@@ -7,24 +7,24 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-              <Grid.Background>
-      <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-          <GradientStop Color="Black"/>
-          <GradientStop Color="#FF111318" Offset="1"/>
-      </LinearGradientBrush>
-  </Grid.Background>
-  <Grid Height="40"
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF111318" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid Height="40"
 Background="#181818"
 MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" Margin="0,0,0,410">
 
 
 
-  </Grid>
-  <Grid>
-      <Label Content="DNS Forge" HorizontalAlignment="Center" VerticalAlignment="Top" Height="40" Width="150" FontSize="24" Foreground="White" FontFamily="Arial Black" MouseDown="Label_MouseDown"/>
-      <Label Content="Alpha 1.0" HorizontalAlignment="Center" Margin="0,412,0,0" VerticalAlignment="Top" Width="66" Height="28" Foreground="#FF565252" FontWeight="Bold"/>
+        </Grid>
+        <Grid>
+            <Label Content="DNS Forge" HorizontalAlignment="Center" VerticalAlignment="Top" Height="40" Width="150" FontSize="24" Foreground="White" FontFamily="Arial Black" MouseDown="Label_MouseDown"/>
+            <Label Content="Alpha 1.0" HorizontalAlignment="Center" Margin="0,412,0,0" VerticalAlignment="Top" Width="66" Height="28" Foreground="#FF565252" FontWeight="Bold"/>
 
-      <Button Content="Adapter Setting"
+            <Button x:Name="AdapterSettingButton" Content="Adapter Setting"
   HorizontalAlignment="Left"
   Margin="400,145,0,0"
   VerticalAlignment="Top"
@@ -39,19 +39,19 @@ MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" Margin="0,0,0,410">
   Cursor="Hand"
   BorderThickness="0">
 
-          <Button.Template>
-              <ControlTemplate TargetType="Button">
-                  <Border Background="{TemplateBinding Background}"
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
               CornerRadius="10">
-                      <ContentPresenter
+                            <ContentPresenter
               HorizontalAlignment="Center"
               VerticalAlignment="Center"/>
-                  </Border>
-              </ControlTemplate>
-          </Button.Template>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
 
-      </Button>
-      <Button Content="Choose DNS"
+            </Button>
+            <Button x:Name="ChooseButton" Content="Choose DNS"
           HorizontalAlignment="Left"
           Margin="400,209,0,0"
           VerticalAlignment="Top"
@@ -66,45 +66,19 @@ MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" Margin="0,0,0,410">
           Cursor="Hand"
           BorderThickness="0">
 
-          <Button.Template>
-              <ControlTemplate TargetType="{x:Type Button}">
-                  <Border Background="{TemplateBinding Background}"
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}"
                       CornerRadius="10">
-                      <ContentPresenter
+                            <ContentPresenter
                           HorizontalAlignment="Center"
                           VerticalAlignment="Center"/>
-                  </Border>
-              </ControlTemplate>
-          </Button.Template>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
 
-      </Button>
-
-      <Button Content="SET"
-  HorizontalAlignment="Left"
-  Margin="130,0,0,0"
-  VerticalAlignment="Center"
-  Height="160"
-  Width="160"
-  FontFamily="Arial Black"
-  FontSize="36"
-  Foreground="White"
-  Background="#FF3987FF"
-  BorderThickness="0"
-  Cursor="Hand">
-
-          <Button.Template>
-              <ControlTemplate TargetType="Button">
-                  <Border Background="{TemplateBinding Background}"
-              CornerRadius="100">
-                      <ContentPresenter
-              HorizontalAlignment="Center"
-              VerticalAlignment="Center"/>
-                  </Border>
-              </ControlTemplate>
-          </Button.Template>
-
-      </Button>
-            <Button Content="Benchmark"
+            </Button>
+            <Button x:Name="BenchmarkButton" Content="Benchmark"
           HorizontalAlignment="Left"
           Margin="400,274,0,0"
           VerticalAlignment="Top"
@@ -131,12 +105,39 @@ MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" Margin="0,0,0,410">
                 </Button.Template>
 
             </Button>
+            <Button Content="STOP"
+                    x:Name="StopButton"
+                HorizontalAlignment="Left"
+                Margin="130,0,0,0"
+                VerticalAlignment="Center"
+                Height="160"
+                
+                Width="160"
+                FontFamily="Arial Black"
+                FontSize="36"
+                Foreground="White"
+                Background="#FFFF4239"
+                BorderThickness="0"
+                Cursor="Hand" Click="STOP">
+
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}"
+                            CornerRadius="100">
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
 
 
         </Grid>
 
-  <!-- Close Button -->
-  <Button Content="X"
+        <!-- Close Button -->
+        <Button Content="X"
   Margin="749,0,0,410"
   Click="Button_Click"
   FontSize="24"
@@ -146,31 +147,31 @@ MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" Margin="0,0,0,410">
   BorderThickness="0"
   Padding="0">
 
-      <Button.Template>
-          <ControlTemplate TargetType="Button">
-              <Border x:Name="ButtonBorder"
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="ButtonBorder"
               Background="{TemplateBinding Background}">
-                  <ContentPresenter
+                        <ContentPresenter
               HorizontalAlignment="Center"
               VerticalAlignment="Center"/>
-              </Border>
+                    </Border>
 
-              <ControlTemplate.Triggers>
-                  <Trigger Property="IsMouseOver" Value="True">
-                      <Setter TargetName="ButtonBorder"
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonBorder"
                       Property="Background"
                       Value="#FF3A2020"/>
-                      <Setter Property="Foreground"
+                            <Setter Property="Foreground"
                       Value="#FFFF5555"/>
-                  </Trigger>
-              </ControlTemplate.Triggers>
-          </ControlTemplate>
-      </Button.Template>
-  </Button>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
 
 
-  <!-- Minimize Button -->
-  <Button Content="—"
+        <!-- Minimize Button -->
+        <Button Content="—"
   Margin="698,0,51,410"
   Click="Button1_Click"
   FontSize="24"
@@ -180,25 +181,51 @@ MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" Margin="0,0,0,410">
   BorderThickness="0"
   Padding="0">
 
-      <Button.Template>
-          <ControlTemplate TargetType="Button">
-              <Border x:Name="ButtonBorder"
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="ButtonBorder"
               Background="{TemplateBinding Background}">
-                  <ContentPresenter
+                        <ContentPresenter
               HorizontalAlignment="Center"
               VerticalAlignment="Center"/>
-              </Border>
+                    </Border>
 
-              <ControlTemplate.Triggers>
-                  <Trigger Property="IsMouseOver" Value="True">
-                      <Setter TargetName="ButtonBorder"
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonBorder"
                       Property="Background"
                       Value="#FF303030"/>
-                  </Trigger>
-              </ControlTemplate.Triggers>
-          </ControlTemplate>
-      </Button.Template>
-  </Button>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button Content="SET"
+                x:Name="SetButton"
+            HorizontalAlignment="Left"
+            Margin="130,0,0,0" VerticalAlignment="Center"
+            Height="160"
+            Width="160"
+                
+            FontFamily="Arial Black"
+            FontSize="36"
+            Foreground="White"
+            Background="#FF3987FF"
+            BorderThickness="0"
+            Cursor="Hand" Click="SET">
+
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}"
+                        CornerRadius="100">
+                        <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
 
     </Grid>
 </UserControl>
