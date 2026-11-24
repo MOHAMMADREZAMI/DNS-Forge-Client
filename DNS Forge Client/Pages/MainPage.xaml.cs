@@ -86,7 +86,7 @@ namespace DNS_Forge_Client.Pages
         }
 
 
-        private void SET(object sender, RoutedEventArgs e)
+        private async void SET(object sender, RoutedEventArgs e)
         {
             if(SelAdapter is null || DNSAddress is  null)
             {
@@ -101,12 +101,12 @@ namespace DNS_Forge_Client.Pages
             ChooseButton.IsEnabled = false;
             BenchmarkButton.IsEnabled = false;
 
-            Process.Start(new ProcessStartInfo("powershell.exe", $"-Command \"Set-DnsClientServerAddress -InterfaceAlias '{SelAdapter}' -ServerAddresses {DNSAddress}\"") { UseShellExecute = true, WindowStyle = ProcessWindowStyle.Hidden }).WaitForExit();
+            await Process.Start(new ProcessStartInfo("powershell.exe", $"-Command \"Set-DnsClientServerAddress -InterfaceAlias '{SelAdapter}' -ServerAddresses {DNSAddress}\"") { UseShellExecute = true, WindowStyle = ProcessWindowStyle.Hidden }).WaitForExitAsync();
             
             
         }
 
-        private void STOP(object sender, RoutedEventArgs e)
+        private async void STOP(object sender, RoutedEventArgs e)
         {
             SetButton.Visibility = Visibility.Visible;
             StopButton.Visibility = Visibility.Hidden;
@@ -115,7 +115,9 @@ namespace DNS_Forge_Client.Pages
             ChooseButton.IsEnabled = true;
             BenchmarkButton.IsEnabled = true;
 
-            Process.Start(new ProcessStartInfo("powershell.exe", $"-Command \"Set-DnsClientServerAddress -InterfaceAlias '{SelAdapter}' -ResetServerAddresses\"") { UseShellExecute = true, WindowStyle = ProcessWindowStyle.Hidden }).WaitForExit();
+            await Process.Start(new ProcessStartInfo("powershell.exe", $"-Command \"Set-DnsClientServerAddress -InterfaceAlias '{SelAdapter}' -ResetServerAddresses\"") { UseShellExecute = true, WindowStyle = ProcessWindowStyle.Hidden }).WaitForExitAsync();
         }
+
+        
     }
 }
