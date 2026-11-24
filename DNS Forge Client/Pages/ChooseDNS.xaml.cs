@@ -49,7 +49,7 @@ namespace DNS_Forge_Client.Pages
 
             try
             {
-                response = await client.PostAsync("http://localhost:5191/api/JsonGet/GetJson", null);
+                response = await client.PostAsync("https://raw.githubusercontent.com/MOHAMMADREZAMI/DNS-Forge-Client/refs/heads/master/DNS.json", null);
                 string Json = await response.Content.ReadAsStringAsync();
 
                 DNS_List = JsonSerializer.Deserialize<DNS>(Json);
