@@ -1,0 +1,48 @@
+{
+    "IR": [
+        {
+            "Name": "Shecan",
+            "Description": "Shekan is a completely legal and localized internet service that allows you to access foreign sanctioned sites. Many of the sites that cannot be opened from Iran are not filtered, but rather blocked due to sanctions.",
+            "Primary": "178.22.122.100",
+            "Secondary": "185.51.200.2",
+            "Logo": "https://myket.ir/asset-files/icons/xlarge/co.bonyan.shecan_fb38446f-184b-4e0d-8400-78d16d84df80.png"
+        },
+        {
+            "Name": "begzar",
+            "Description": "With Bgzr, you can open all the sites that have banned Iran.",
+            "Primary": "185.55.226.26",
+            "Secondary": "185.55.225.25",
+            "Logo": "https://begzar.ir/img/logo.png"
+        },
+        {
+            "Name": "Sheltertm",
+            "Description": "Shelter is a dedicated gaming DNS that optimizes your connection to game servers. Set up once and play on PC, console, and mobile.",
+            "Primary": "94.103.125.157",
+            "Secondary": "94.103.125.158",
+            "Logo": "https://www.sheltertm.com/assets/img/logo-2b774c5634.webp"
+        }
+    ],
+    "Global": [
+        {
+            "Name": "Google",
+            "Description": "Configure your network settings to use the IP addresses 8.8.8.8 and 8.8.4.4 as your DNS servers",
+            "Primary": "8.8.8.8",
+            "Secondary": "8.8.4.4",
+            "Logo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Google_2026_logo.svg/250px-Google_2026_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail"
+        },
+        {
+            "Name": "Cloudflare",
+            "Description": "Speed up your online experience with Cloudflare's public DNS resolver.",
+            "Primary": "1.1.1.1",
+            "Secondary": "1.0.0.1",
+            "Logo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Cloudflare_Logo.svg/250px-Cloudflare_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail"
+        },
+        {
+            "Name": "Quad9",
+            "Description": "",
+            "Primary": "9.9.9.9",
+            "Secondary": "149.112.112.112",
+            "Logo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Quad9_logo.svg/250px-Quad9_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail"
+        }
+    ]
+}
